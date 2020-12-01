@@ -15,22 +15,30 @@ with open(path, "r") as file:
 
 #variables (start at 0)
 # months = []
-net_prof_loss = []
+prof_loss = 0
 avg_change_pl = []
 greatest_increase = []
 greatest_deacrease = []
-total_prof_loss = []
+total_pl = 0
 
-print(data)
+#print(data)
 
 for row in data:
-    #print(row)
-    total_prof_loss.append(int(row[1]))
+    row = dict(row)
+    #prior_pl = prof_loss
+    pl = int(row["Profit/Losses"])
+    total_pl += pl 
+
+format_total_pl = "${:,.2f}".format(total_pl)    
+    
+       
+        
         
     
 print("Financial Analysis")
 print("---------------------")
 print(f"Total Months: {total_months}")
+print(f"Total P/L: {format_total_pl}")
 print(f"Average Change: ")
 print(f"Greatest Increase in Profits: ")
 print(f"Greatest Decreae in Profits: ")
